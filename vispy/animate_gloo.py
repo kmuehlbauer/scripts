@@ -50,6 +50,13 @@ varying vec2 v_texcoord;
 
 void main()
 {
+    /*vec2 uv = v_texcoord.xy;
+    vec2 p = uv - 0.5;
+    float r = length(p.xy);
+    float a = atan(radians(p.y), radians(p.x));
+    gl_FragColor = texture2D(u_texture, vec2(r, a));
+    gl_FragColor = vec4(gl_FragColor.xyz / r , 1.0);*/
+
     gl_FragColor = texture2D(u_texture, v_texcoord);
     gl_FragColor.a = 1.0;
 }
