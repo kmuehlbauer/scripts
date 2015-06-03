@@ -45,12 +45,12 @@ class Canvas(app.Canvas):
         self.image = visuals.ImageVisual(self.data, method='auto', cmap='cubehelix', clim='auto')
         self.image.tr_sys = TransformSystem(self)
 
-        #tr = AffineTransform()
-        #tr.rotate(90, (0, 0, 1))
-        #self.image.transform = (STTransform(scale=(3.5,3.5), translate=(450, 450, 1)) *
-        #                        tr *
-        #                        PolarTransform())
-        #self.image.tr_sys.visual_to_document = self.image.transform
+        tr = AffineTransform()
+        tr.rotate(90, (0, 0, 1))
+        self.image.transform = (STTransform(scale=(3.5,3.5), translate=(180, 180, 1)) *
+                                tr *
+                                PolarTransform())
+        self.image.tr_sys.visual_to_document = self.image.transform
 
         self._timer = app.Timer(start=False)
         self._timer.connect(self.update)
